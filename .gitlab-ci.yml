@@ -1,0 +1,25 @@
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - deploy
+
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\tPasswordAuthentication no\n\n" > ~/.ssh/config
+
+
+deploy:
+  stage: deploy
+  only: 
+    - dev
+  script:
+    - apt-get update
+    - apt-get install -y sshpass
+    - sshpass -p $SSH_PASSWORD ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST $SSH_PORT "cd /var/www/styx && git pull && yarn --frozen-lockfile && cd apps/backend && yarn prisma migrate deploy && yarn prisma generate && yarn seed:prod && yarn build && cd ../frontend && yarn build && pm2 restart 11 && pm2 restart 12"

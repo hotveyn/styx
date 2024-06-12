@@ -1,0 +1,728 @@
+{
+    "words": {
+        "yes": "Да",
+        "no": "Нет"
+    },
+    "upload": {
+        "maxSize": "Файл должен весить меньше",
+        "mb": "мб",
+        "fileError": "Невозможно загрузить файл",
+        "allowedTypes": "Доступные типы",
+        "required": "Файл обязателен",
+        "label": "Загрузить файл"
+    },
+    "copy": {
+        "notify": {
+            "key": "Ключ",
+            "device": "устройства",
+            "goal": "цели",
+            "success": "успешно скопирован"
+        },
+        "tooltip": "Нажмите, чтобы скопировать текст в буфер обмена"
+    },
+    "confirms": {
+        "organization": {
+            "add": "Добавить организацию",
+            "edit": "Изменить организацию",
+            "delete": "Удалить организацию"
+        },
+        "user": {
+            "add": "Добавить пользователя",
+            "edit": "Изменить пользователя",
+            "delete": "Удалить пользователя",
+            "page": "Показать всех пользователей"
+        },
+        "device": {
+            "add": "Добавить устройство",
+            "edit": "Изменить устройство",
+            "view": "Просмотреть информацию",
+            "delete": "Удалить устройство",
+            "page": "Показать все устройства"
+        },
+        "goal": {
+            "add": "Добавить цель",
+            "edit": "Изменить цель",
+            "delete": "Удалить цель",
+            "page": "Показать все цели"
+        },
+        "applications": {
+            "add": "Добавить приложение",
+            "edit": "Изменить приложение",
+            "delete": "Удалить приложение"
+        },
+        "params": {
+            "apply": "Сохранить изменения",
+            "edit": "Вы уверены, что хотите изменить параметр? (Это действие может повлиять на работу системы)"
+        },
+        "camera": {
+            "add": "Добавить камеру",
+            "edit": "Изменить камеру",
+            "delete": "Удалить камеру",
+            "view": "Просмотреть камеру"
+        },
+        "logs": {
+            "page": "Показать все логи"
+        }
+    },
+    "titles": {
+        "organizations": "Организации",
+        "users": "Пользователи",
+        "params": "Параметры системы",
+        "cameras": "Камеры",
+        "devices": "Устройства",
+        "device": "Информация об устройстве",
+        "logs": "Логи",
+        "deviceCharts": "Статистика целей",
+        "deviceFailures": "Сбои",
+        "logsDevice": "Устройство",
+        "goals": "Цели",
+        "goalList": "Список целей",
+        "goalsAchieve": "Статистика целей",
+        "achievedGoals": "Достигнутые цели",
+        "applications": "Приложения",
+        "statistics": "Статистика",
+        "monitoring": "Мониторинг",
+        "reports": "Отчёты",
+        "docs": "Документация",
+        "failureNotification": "Критические события",
+        "exit": "Выход",
+        "selectedOrganization": {
+            "devices": "Устройства организации",
+            "users": "Пользователи организации",
+            "goals": "Цели организации"
+        }
+    },
+    "auth": {
+        "title": "Авторизация",
+        "form": {
+            "fields": {
+                "login": {
+                    "label": "Логин или email",
+                    "placeholder": "Введите логин или email",
+                    "errorMessage": "Пожалуйста, введите логин или email"
+                },
+                "password": {
+                    "label": "Пароль",
+                    "placeholder": "Введите пароль",
+                    "errorMessage": "Пожалуйста, введите пароль"
+                }
+            },
+            "button": "Войти"
+        },
+        "queries": {
+            "post": {
+                "error": "Ошибка авторизации",
+                "unAuth": "Неверный логин или пароль",
+                "incorrectToken": "Неверный токен авторизации"
+            }
+        }
+    },
+    "logout": {
+        "error": "Ошибка выхода из системы"
+    },
+    "noSpaceMessage": "Пробелы в начале и конце строки запрещены",
+    "table": {
+        "actions": "Действия",
+        "search": {
+            "label": "Поиск",
+            "placeholder": "Начните вводить"
+        }
+    },
+    "buttons": {
+        "add": "Добавить",
+        "edit": "Изменить",
+        "back": "Вернуться назад"
+    },
+    "organizations": {
+        "columns": {
+            "id": "ID",
+            "createdAt": "Дата создания",
+            "name": "Название",
+            "deviceCount": "Устройства",
+            "userCount": "Пользователи",
+            "goalCount": "Цели"
+        },
+        "drawer": {
+            "addTitle": "Добавление организации",
+            "editTitle": "Изменение организации",
+            "fields": {
+                "name": {
+                    "label": "Название",
+                    "placeholder": "Введите название",
+                    "errorMessage": "Название организации обязательно"
+                }
+            }
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения организаций"
+            },
+            "post": {
+                "success": "Организация успешно добавлена",
+                "error": "Ошибка удаления организации"
+            },
+            "patch": {
+                "success": "Организация успешно изменена",
+                "error": "Ошибка изменения организация"
+            },
+            "delete": {
+                "success": "Организация успешно удалена",
+                "error": "Ошибка удаления организации"
+            },
+            "unique": {
+                "organizationName": "Организация с этим именем уже существует",
+                "organizationId": "Организация с этим id не существует",
+                "organizationUsers": "В организации есть пользователи",
+                "organizationDevices": "В организации есть устройства",
+                "organizationGoals": "В организации есть цели"
+            }
+        }
+    },
+    "users": {
+        "columns": {
+            "id": "ID",
+            "createdAt": "Дата создания",
+            "name": "ФИО",
+            "login": "Логин",
+            "email": "Email",
+            "organizationName": "Организация"
+        },
+        "drawer": {
+            "addTitle": "Добавление пользователя",
+            "editTitle": "Изменение пользователя",
+            "fields": {
+                "organization": {
+                    "label": "Организация",
+                    "placeholder": "Выберите организацию",
+                    "errorMessage": "Организация обязательна"
+                },
+                "name": {
+                    "label": "ФИО",
+                    "placeholder": "Введите ФИО",
+                    "errorMessage": "ФИО пользователя обязательно"
+                },
+                "login": {
+                    "label": "Логин",
+                    "placeholder": "Введите логин",
+                    "errorMessage": "Логин обязателен"
+                },
+                "email": {
+                    "label": "Email",
+                    "placeholder": "Введите email",
+                    "errorMessage": "Email обязателен",
+                    "pattern": "Некорректное значение для email"
+                },
+                "password": {
+                    "label": "Пароль",
+                    "placeholder": "Введите пароль",
+                    "errorMessage": "Пароль обязателен",
+                    "pattern": "Пробелы не разрешены"
+                },
+                "additionalData": {
+                    "label": "Дополнительная информация"
+                }
+            }
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения пользователей",
+                "profileError": "Ошибка получения информации о пользователе"
+            },
+            "post": {
+                "success": "Пользователь успешно добавлен",
+                "error": "Ошибка удаления пользователя"
+            },
+            "patch": {
+                "success": "Пользователь успешно изменён",
+                "error": "Ошибка изменения пользователя"
+            },
+            "delete": {
+                "success": "Пользователь успешно удалён",
+                "error": "Ошибка удаления пользователя"
+            },
+            "unique": {
+                "userLogin": "Пользователь с этим логином уже существует",
+                "userEmail": "Пользователь с этим email уже существует",
+                "userDelete": "Вы не можете удалить этого пользователя",
+                "userId": "Пользователь с этим id не существует"
+            }
+        }
+    },
+    "devices": {
+        "columns": {
+            "id": "ID",
+            "createdAt": "Дата создания",
+            "ip": "IP",
+            "port": "Порт",
+            "name": "Название устройства",
+            "deviceType": "Тип устройства",
+            "address": "Адрес устройства",
+            "geo": "Геометка",
+            "softwareType": "Приложение",
+            "softwareVersion": "Версия",
+            "organizationName": "Организация",
+            "status": "Статус",
+            "sshParameters": "SSH параметры",
+            "additionalData": "Дополнительная информация",
+            "code": "Ключ"
+        },
+        "drawer": {
+            "addTitle": "Добавление устройства",
+            "editTitle": "Изменение устройства",
+            "viewTitle": "Информация об устройстве",
+            "fields": {
+                "ip": {
+                    "label": "IP",
+                    "placeholder": "Введите IP адрес",
+                    "errorMessage": "IP адрес обязателен",
+                    "pattern": "Некорректное значение для IP"
+                },
+                "port": {
+                    "label": "Порт",
+                    "placeholder": "Введите порт",
+                    "errorMessage": "Порт обязателен",
+                    "pattern": "Некорректное значение для порта"
+                },
+                "name": {
+                    "label": "Название",
+                    "placeholder": "Введите название",
+                    "errorMessage": "Название обязательно"
+                },
+                "deviceType": {
+                    "label": "Тип",
+                    "placeholder": "Введите тип устройства",
+                    "errorMessage": "Тип устройства обязателен"
+                },
+                "address": {
+                    "label": "Адрес",
+                    "placeholder": "Введите адрес",
+                    "errorMessage": "Адрес обязателен"
+                },
+                "geo": {
+                    "label": "Геометка",
+                    "placeholder": "Введите геометку",
+                    "errorMessage": "Геометка обязательна"
+                },
+                "softwareType": {
+                    "label": "Тип приложения",
+                    "placeholder": "Введите тип приложения"
+                },
+                "softwareVersion": {
+                    "label": "Версия приложения",
+                    "placeholder": "Введите версию приложения"
+                },
+                "organization": {
+                    "label": "Организация",
+                    "placeholder": "Выберите организацию"
+                },
+                "status": {
+                    "label": "Статус",
+                    "placeholder": "Выберите статус",
+                    "errorMessage": "Статус обязателен"
+                },
+                "sshParameters": {
+                    "label": "SSH параметры",
+                    "placeholder": "Введите SSH параметры"
+                },
+                "code": {
+                    "label": "UUID",
+                    "placeholder": "Введите уникальный UUID",
+                    "errorMessage": "Ключ не может содержать кириллицу"
+                },
+                "additionalData": {
+                    "label": "Дополнительная информация"
+                }
+            },
+            "emptyGeo": "Для отображения координат уточните адрес"
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения устройств"
+            },
+            "getOne": {
+                "error": "Ошибка получения устройства"
+            },
+            "post": {
+                "success": "Устройство успешно добавлено",
+                "error": "Ошибка удаления устройства"
+            },
+            "patch": {
+                "success": "Устройство успешно изменено",
+                "error": "Ошибка изменения устройства"
+            },
+            "delete": {
+                "success": "Устройство успешно удалено",
+                "error": "Ошибка удаления устройства"
+            },
+            "unique": {
+                "deviceCode": "Устройство с этим UUID уже существует"
+            }
+        },
+        "statuses": {
+            "new": "Новый",
+            "waited": "Ожидание",
+            "work": "В работе",
+            "stopped": "Остановлен"
+        }
+    },
+    "goals": {
+        "columns": {
+            "createdAt": "Дата создания",
+            "name": "Название",
+            "description": "Описание",
+            "code": "Ключ",
+            "organizationName": "Организация"
+        },
+        "drawer": {
+            "addTitle": "Добавление цели",
+            "editTitle": "Изменение цели",
+            "fields": {
+                "name": {
+                    "label": "Название",
+                    "placeholder": "Введите название",
+                    "errorMessage": "Название обязательно"
+                },
+                "description": {
+                    "label": "Описание",
+                    "placeholder": "Введите описание",
+                    "errorMessage": "Описание обязательно"
+                },
+                "code": {
+                    "label": "Ключ",
+                    "placeholder": "Введите ключ",
+                    "errorMessage": "Ключ не может содержать кириллицу"
+                },
+                "organization": {
+                    "label": "Организация",
+                    "placeholder": "Выберите организацию",
+                    "errorMessage": "Организация обязательна"
+                }
+            }
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения целей"
+            },
+            "post": {
+                "success": "Цель успешно добавлена",
+                "error": "Ошибка удаления цели"
+            },
+            "patch": {
+                "success": "Цель успешно изменена",
+                "error": "Ошибка изменения цели"
+            },
+            "delete": {
+                "success": "Цель успешно удалена",
+                "error": "Ошибка удаления цели"
+            },
+            "unique": {
+                "goalCode": "Цель с этим ключом уже существует"
+            }
+        }
+    },
+    "goalsStatistics": {
+        "goalFilter": {
+            "label": "Цели",
+            "placeholder": "Выберите цели",
+            "applyButton": "Применить",
+            "resetButton": "Сбросить"
+        },
+        "showCode": "Показать всю информацию"
+    },
+    "achievedGoals": {
+        "columns": {
+            "createdAt": "Дата создания",
+            "device": "Устройство",
+            "goal": "Цель",
+            "count": "Кол-во выполнений"
+        }
+    },
+    "deviceCharts": {
+        "tabs": {
+            "hours": "По часам",
+            "days": "По дням недели"
+        },
+        "labels": {
+            "monday": "Понедельник",
+            "tuesday": "Вторник",
+            "wednesday": "Среда",
+            "thursday": "Четверг",
+            "friday": "Пятница",
+            "saturday": "Суббота",
+            "sunday": "Воскресенье"
+        },
+        "datasets": {
+            "quantity": "Кол-во выполненных целей"
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения выполненных целей"
+            }
+        }
+    },
+    "deviceFailures": {
+        "columns": {
+            "createdAt": "Время",
+            "repairedDate": "Время восстановления",
+            "comment": "Комментарий",
+            "checked": "Просмотрено",
+            "device": "Устройство"
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения сбоев устройства"
+            }
+        }
+    },
+    "failureNotification": {
+        "checkAllButton": "Просмотреть все",
+        "checkButton": "Просмотреть",
+        "queries": {
+            "get": {
+                "error": "Ошибка получения критических событий"
+            },
+            "post": {
+                "success": "Уведомление успешно просмотрено",
+                "error": "Ошибка просмотра уведомления"
+            },
+            "postAll": {
+                "success": "Уведомления успешно просмотрены",
+                "error": "Ошибка просмотра уведомлений"
+            }
+        }
+    },
+    "logs": {
+        "columns": {
+            "requestTime": "Время",
+            "body": "Содержание",
+            "device": "Устройство",
+            "code": "Ключ"
+        },
+        "period": {
+            "label": "Выберите период"
+        },
+        "tabs": {
+            "info": "Информация",
+            "error": "Ошибки"
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения логов"
+            }
+        }
+    },
+    "applications": {
+        "columns": {
+            "createdAt": "Дата создания",
+            "name": "Название",
+            "description": "Описание",
+            "code": "Ключ",
+            "organizationName": "Организация"
+        },
+        "drawer": {
+            "addTitle": "Добавление приложения",
+            "editTitle": "Изменение приложения",
+            "fields": {
+                "name": {
+                    "label": "Название",
+                    "placeholder": "Введите название",
+                    "errorMessage": "Название обязательно",
+                    "pattern": "Название может содержать только латинские символы"
+                },
+                "app": {
+                    "label": "Приложение",
+                    "placeholder": "Загрузите приложение",
+                    "errorMessage": "Приложение обязательно"
+                }
+            }
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения приложений"
+            },
+            "post": {
+                "success": "Приложение успешно добавлено",
+                "error": "Ошибка удаления приложения"
+            },
+            "patch": {
+                "success": "Приложение успешно изменено",
+                "error": "Ошибка изменения приложения"
+            },
+            "delete": {
+                "success": "Приложение успешно удалено",
+                "error": "Ошибка удаления приложения"
+            },
+            "unique": {
+                "applicationName": "Приложение с таким именем уже существует"
+            }
+        }
+    },
+    "params": {
+        "columns": {
+            "code": "Ключ",
+            "name": "Название",
+            "description": "Описание",
+            "value": "Значение",
+            "changeDate": "Дата изменения"
+        },
+        "data": {
+            "speechCredentials": {
+                "name": "SaluteSpeech Api Credentials",
+                "description": "Ключ для авторизации API SaluteSpeech"
+            },
+            "refreshTokenLifeTime": {
+                "name": "Время жизни refresh токена",
+                "description": "В днях"
+            },
+            "accessTokenLifeTime": {
+                "name": "Время жизни access токена",
+                "description": "В минутах"
+            },
+            "dadataCredentials": {
+                "name": "Dadata Api Credentials",
+                "description": "Ключ для авторизации API Dadata"
+            },
+            "telegramBotToken": {
+                "name": "Токен телеграм бота",
+                "description": ""
+            },
+            "telegramBotName": {
+                "name": "Имя телеграм бота",
+                "description": ""
+            },
+            "deviceDetectInterval": {
+                "name": "Интервал между отправкой запроса к устройствам клиентам STYX",
+                "description": "В милисекундах"
+            }
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения параметров системы"
+            },
+            "patch": {
+                "success": "Параметр успешно изменён",
+                "error": "Ошибка изменения параметра"
+            }
+        }
+    },
+    "monitoring": {
+        "stats": {
+            "activeDevicesCount": "Активные устройства",
+            "unactiveDevicesCount": "Неактивные устройства",
+            "achievedGoalsCount": "Достигнутые цели",
+            "failureCount": "Сбои",
+            "activeFailureCount": "Сбои активных устройств",
+            "logErrorCount": "Логи ошибок",
+            "logInfoCount": "Информационные логи"
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения данных мониторинга"
+            }
+        }
+    },
+    "cameras": {
+        "columns": {
+            "createdAt": "Дата создания",
+            "id": "ID",
+            "name": "Название",
+            "link": "Ссылка",
+            "organization": "Организация"
+        },
+        "drawer": {
+            "addTitle": "Добавление камеры",
+            "editTitle": "Изменение камеры",
+            "viewTitle": "Просмотр камеры",
+            "fields": {
+                "name": {
+                    "label": "Название",
+                    "placeholder": "Введите название",
+                    "errorMessage": "Название камеры обязательно"
+                },
+                "link": {
+                    "label": "Ссылка",
+                    "placeholder": "Введите ссылку",
+                    "errorMessage": "Сслыка на поток камеры обязательна",
+                    "validLink": "Некорректная ссылка"
+                },
+                "organization": {
+                    "label": "Организация",
+                    "placeholder": "Выберите организацию",
+                    "errorMessage": "Организация обязательна"
+                }
+            }
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения камер"
+            },
+            "post": {
+                "success": "Камера успешно добавлена",
+                "error": "Ошибка удаления камеры"
+            },
+            "delete": {
+                "success": "Камера успешно удалена",
+                "error": "Ошибка удаления камеры"
+            },
+            "patch": {
+                "success": "Камера успешно изменена",
+                "error": "Ошибка изменения камеры"
+            }
+        }
+    },
+    "reports": {
+        "pageTitle": "Отчёт",
+        "text": {
+          "reportType": "Выбор типа отчёта",
+          "period": "Выберите период"
+        },
+        "buttons": {
+          "refresh": "Обновить",
+          "today": "Сегодня",
+          "month": "Этот месяц",
+          "excel": "Скачать excel"
+        },
+        "reportType": {
+            "activity": "По сбоям",
+            "organizations": "По организациям"
+        },
+        "columns": {
+            "failureReport": {
+                "createdAt": "Дата",
+                "failureCount": "Кол-во сбоев",
+                "errorCount": "Кол-во логов ошибок",
+                "infoCount": "Кол-во информационных логов"
+            }
+        },
+        "chart": {
+            "labels": {
+                
+            }
+        },
+        "queries": {
+            "get": {
+                "error": "Ошибка получения отчётов"
+            }
+        }
+      },
+    "dadata": {
+        "queries": {
+            "get": {
+                "error": "Ошибка получения адресов"
+            },
+            "notFound": "Адрес не найден"
+        }
+    },
+    "telegram": {
+        "tooltipText": "Подписаться на уведомления",
+        "queries": {
+            "get": {
+                "error": "Ошибка получения ссылки телеграм бота"
+            }
+        }
+    },
+    "notFound": {
+        "title": "Страница не найдена",
+        "button": "Вернуться на главную"
+    }
+}

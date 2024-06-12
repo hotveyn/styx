@@ -1,0 +1,290 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organization {
+  id        BigInt    @id @default(autoincrement())
+  name      String    @unique
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  isDeleted DateTime? @map("is_deleted") @db.Timestamptz(3)
+
+  users   User[]
+  devices Device[]
+  goals   Goal[]
+  cemeras Camera[]
+
+  @@map("organizations")
+}
+
+model User {
+  id             BigInt    @id @default(autoincrement())
+  code           String    @unique @default(dbgenerated("gen_random_uuid()"))
+  name           String
+  login          String    @unique
+  password       String
+  organizationId BigInt?   @map("organization_id")
+  email          String?   @unique
+  additionalData Json?     @map("additional_data")
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  isDeleted      DateTime? @map("is_deleted") @db.Timestamptz(3)
+
+  organization          Organization?         @relation(fields: [organizationId], references: [id])
+  parameterChanges      ParameterChange[]
+  refreshTokens         RefreshToken[]
+  failuresNotifications FailureNotification[]
+  notification          Notification?
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        BigInt   @id @default(autoincrement())
+  token     String?
+  userId    BigInt   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  owner User @relation(fields: [userId], references: [id])
+
+  @@map("refresh_tokens")
+}
+
+model Application {
+  name      String   @id @db.VarChar(80)
+  unpacked  Boolean  @default(false)
+  size      Int?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("applications")
+}
+
+model Parameter {
+  name        String
+  code        ParameterCode @id
+  description String?
+  value       String
+  createdAt   DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime      @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  parameterChanges ParameterChange[]
+
+  @@map("parameters")
+}
+
+enum ParameterCode {
+  ACCESS_TOKEN_LIFE_TIME
+  REFRESH_TOKEN_LIFE_TIME
+  SPEECH_CREDENTIALS
+  DADATA_CREDENTIALS
+  TELEGRAM_BOT_TOKEN
+  TELEGRAM_BOT_NAME
+  DEVICE_DETECT_INTERVAL
+
+  @@map("parameter_code")
+}
+
+model ParameterChange {
+  id            BigInt        @id @default(autoincrement())
+  userId        BigInt        @map("user_id")
+  parameterCode ParameterCode @map("parameter_code")
+  was           String
+  became        String
+  createdAt     DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt     DateTime      @updatedAt @map("updated_at") @db.Timestamptz(3)
+  isDeleted     DateTime?     @map("is_deleted") @db.Timestamptz(3)
+
+  user      User      @relation(fields: [userId], references: [id])
+  parameter Parameter @relation(fields: [parameterCode], references: [code])
+
+  @@map("parameters_changes")
+}
+
+model Device {
+  id              BigInt       @id @default(autoincrement())
+  code            String       @unique @default(dbgenerated("gen_random_uuid()"))
+  ip              String
+  port            String
+  name            String
+  deviceType      String       @map("device_type")
+  address         String
+  geo             String
+  softwareType    String       @map("software_type")
+  softwareVersion String       @map("software_version")
+  organizationId  BigInt?      @map("organization_id")
+  status          DeviceStatus @default(NEW)
+  sshParameters   String?      @map("ssh_parameters")
+  isAlive         Boolean?     @map("is_alive")
+  lastActionDate  DateTime?    @map("last_action_date") @db.Timestamptz(1)
+  additionalData  Json?        @map("additional_data")
+  createdAt       DateTime     @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime     @updatedAt @map("updated_at") @db.Timestamptz(3)
+  isDeleted       DateTime?    @map("is_deleted") @db.Timestamptz(3)
+
+  organization Organization? @relation(fields: [organizationId], references: [id])
+  goalAchievs  GoalAchiev[]
+  failures     Failure[]
+  logsInfo     LogInfo[]
+  logsError    LogError[]
+
+  @@map("devices")
+}
+
+enum DeviceStatus {
+  NEW
+  WAITED
+  WORK
+  STOPPED
+
+  @@map("device_status")
+}
+
+model LogInfo {
+  id          BigInt   @id @default(autoincrement())
+  deviceCode  String   @map("device_code")
+  body        Json     @map("body")
+  requestTime DateTime @map("request_time") @db.Timestamptz(1)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  device Device @relation(fields: [deviceCode], references: [code])
+
+  @@map("logs_info")
+}
+
+model LogError {
+  id          BigInt   @id @default(autoincrement())
+  deviceCode  String   @map("device_code")
+  body        Json     @map("body")
+  requestTime DateTime @map("request_time") @db.Timestamptz(1)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  device Device @relation(fields: [deviceCode], references: [code])
+
+  @@map("logs_error")
+}
+
+model Goal {
+  id             BigInt    @id @default(autoincrement())
+  name           String
+  description    String
+  code           String    @unique @default(dbgenerated("gen_random_uuid()")) @map("code")
+  organizationId BigInt    @map("organization_id")
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  isDeleted      DateTime? @map("is_deleted") @db.Timestamptz(3)
+
+  organization Organization @relation(fields: [organizationId], references: [id])
+  goalAchieves GoalAchiev[]
+
+  @@map("goals")
+}
+
+model GoalAchiev {
+  id        BigInt    @id @default(autoincrement())
+  goalId    BigInt    @map("goal_id")
+  deviceId  BigInt    @map("device_id")
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  isDeleted DateTime? @map("is_deleted") @db.Timestamptz(3)
+
+  goal   Goal   @relation(fields: [goalId], references: [id])
+  device Device @relation(fields: [deviceId], references: [id])
+
+  @@map("goal_achievs")
+}
+
+model Failure {
+  id          BigInt    @id @default(autoincrement())
+  deviceId    BigInt    @map("device_id")
+  reparedDate DateTime? @map("repared_date")
+  comment     String?
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+  isDeleted   DateTime? @map("is_deleted") @db.Timestamptz(3)
+
+  device        Device                @relation(fields: [deviceId], references: [id])
+  notifications FailureNotification[]
+
+  @@map("failures")
+}
+
+model FailureNotification {
+  failureId BigInt   @map("failure_id")
+  userId    BigInt   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  failure Failure @relation(fields: [failureId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
+
+  @@id([failureId, userId])
+  @@map("failures_notifications")
+}
+
+model Camera {
+  id             BigInt   @id @default(autoincrement())
+  name           String
+  link           String
+  organizationId BigInt?  @map("organization_id")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  organization Organization? @relation(fields: [organizationId], references: [id])
+
+  @@map("cameras")
+}
+
+model Speech {
+  id             BigInt            @id @default(autoincrement())
+  name           String?
+  comment        String?
+  status         SpeechStatus      @default(NEW)
+  compression    SpeechCompression
+  sampleRate     Int               @map("sample_rate")
+  fileName       String            @map("file_name")
+  recognizedText String?           @map("recognized_text")
+  recognizedDate DateTime?         @map("recognized_date")
+  apiResult      Json?             @map("api_result")
+  createdAt      DateTime          @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime          @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  @@map("speeches")
+}
+
+model Notification {
+  userId   BigInt  @id @map("user_id")
+  chatId   String  @unique @map("chat_id")
+  failure  Boolean @default(false)
+  errorLog Boolean @default(false) @map("error_log")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("notifications")
+}
+
+enum SpeechStatus {
+  NEW
+  DONE
+  ERROR
+
+  @@map("speech_status")
+}
+
+enum SpeechCompression {
+  pcmu
+  pcma
+
+  @@map("speech_compression")
+}

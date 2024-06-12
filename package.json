@@ -1,0 +1,14 @@
+{
+  "name": "styx",
+  "version": "0.0.0",
+  "description": "System for logging and monitoring.",
+  "main": "index.js",
+  "repository": "git@git.a-7.tech:a-bt/styx.git",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/frontend",
+    "apps/client"
+  ]
+}

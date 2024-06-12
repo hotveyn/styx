@@ -1,0 +1,4 @@
+.address-select .ant-select-selection-search-input {
+    padding-right: 15px !important;
+    text-overflow: ellipsis !important;
+}

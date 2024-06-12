@@ -1,0 +1,31 @@
+.side-logo-wrapper {
+    padding: 20px 0 0 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-inline-end: 1px solid rgba(5, 5, 5, 0.06);
+}
+
+.side-logo-wrapper span {
+    font-size: 24px;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.menu {
+    padding: 15px 0;
+    min-height: calc(100vh - 75px);
+    height: 100%;
+}
+
+.sidebar {
+    position: fixed !important;
+    z-index: 11;
+}
+
+.version {
+    position: absolute;
+    z-index: 12;
+    left: 15px;
+    bottom: 15px;
+}

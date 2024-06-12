@@ -1,0 +1,11 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./dist/browser",
+      "declarationDir": "./dist/browser",
+      "module": "ESNext"
+    },
+    "include": [
+      "./src/styx.browser.ts"
+    ]
+  }

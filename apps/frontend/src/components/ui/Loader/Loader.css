@@ -1,0 +1,19 @@
+.small {
+    font-size: 24px !important;
+}
+
+.medium {
+    font-size: 36px !important;
+}
+
+.large {
+    font-size: 48px !important;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

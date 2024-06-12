@@ -1,0 +1,16 @@
+export default {
+  ["ORGANIZATION_NAME"]: "organizations.queries.unique.organizationName",
+  ["ORGANIZATION_ID"]: "organizations.queries.unique.organizationId",
+  ["ORGANIZATION_USERS"]: "organizations.queries.unique.organizationUsers",
+  ["ORGANIZATION_DEVICES"]: "organizations.queries.unique.organizationDevices",
+  ["ORGANIZATION_GOALS"]: "organizations.queries.unique.organizationGoals",
+  ["USER_ID"]: "users.queries.unique.userId",
+  ["USER_LOGIN"]: "users.queries.unique.userLogin",
+  ["USER_EMAIL"]: "users.queries.unique.userEmail",
+  ["USER_DELETE"]: "users.queries.unique.userDelete",
+  ["DEVICE_CODE"]: "devices.queries.unique.deviceCode",
+  ["GOAL_CODE"]: "goals.queries.unique.goalCode",
+  ["USER_AUTH"]: "auth.queries.post.unAuth",
+  ["APPLICATION_NAME"]: "applications.queries.unique.applicationName",
+  ["DADATA_SUGGESTION"]: "dadata.queries.notFound",
+};
